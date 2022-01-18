@@ -24,9 +24,10 @@ class App extends Component {
         (`https://api.openweathermap.org/data/2.5/onecall?&lat=${latitude}&lon=${longitude}&units=metric&appid=${openWeatherMapKey}`)
 
       let weatherInfo = {
-        city: locationResponse.data.results[0].components.city,
+        village: locationResponse.data.results[0].components.village,
         temp: weatherResponse.data.current.temp
       }
+  
 
       this.setState({ location: weatherInfo })
       
@@ -35,13 +36,13 @@ class App extends Component {
 
   render() {
     const temp = this.state.location.temp
-    const city = this.state.location.city
+    const village = this.state.location.village
 
     return (
       <Menu>
         <Grid.Column data-cy="weather-display">
           <Header>The local weather in </Header>
-          <p data-cy="city">{city} is </p>
+          <p data-cy="village">{village} is </p>
           <p data-cy="temp">{temp}°C </p>
           <p>
           </p>
